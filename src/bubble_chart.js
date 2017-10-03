@@ -291,15 +291,15 @@ function bubbleChart() {
                   '<span class="name">Peak year: </span><span class="value">' +
                   d.peak_year +
                   '</span><br/>' +
-                  '<span class="name">Emissions, 1990-2014: </span><span class="value">' +
+                  '<span class="name">Carbon footprint*: </span><span class="value">' +
                   addCommas(d.value) +
-                  '</span>';
+                  ' kt CO2E</span>';
 
     tooltip.showTooltip(content, d3.event);
   }
 
   /*
-   * Hides tooltip
+   * Hides tooltip and resets styling on mouse mouseOut
    */
   function hideDetail(d) {
     // reset outline
@@ -395,3 +395,16 @@ d3.csv('data/dummy-data-2.csv', display);
 
 // setup the buttons.
 setupButtons();
+
+//
+
+// possible option, but I it needs to be chained to a transition and don't want it to be called at the end of every trnasition: .on("end", setTimeout(initialTransition, 2000))
+
+function initialTransition () {
+  d3.select("#year").classed('active', true);
+  d3.select("#all").classed('active', false);
+  myBubbleChart.toggleDisplay("year");
+}
+
+setTimeout(initialTransition, 1800);
+
