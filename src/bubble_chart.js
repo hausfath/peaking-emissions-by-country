@@ -32,11 +32,11 @@ function bubbleChart() {
 
   // X locations of the year titles.
   var yearsTitleX = {
-    1990: 2.5 * width / 10,
-    2000: 3.5 * width / 10,
-    2010: 4.5 * width / 10,
-    2020: 5.5 * width / 10,
-    2030: 6.5 * width / 10,
+    1990: 2 * width / 10,
+    2000: 3 * width / 10,
+    2010: 4 * width / 10,
+    2020: 5 * width / 10,
+    2030: 6 * width / 10,
     "Unknown": 8 * width / 10
   };
 
@@ -84,7 +84,7 @@ function bubbleChart() {
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleOrdinal()
     .domain(['Peaked', 'Will peak', 'Unknown'])
-    .range(['#2f8fce', '#beccae', '#7aa25c']);
+    .range(['#ade2ea', '#999999', '#333333']);
 
 
   /*
@@ -269,8 +269,8 @@ function bubbleChart() {
     years.enter().append('text')
       .attr('class', 'year')
       .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', 40)
-      .attr('text-anchor', 'middle')
+      .attr('y', 50)
+      .attr('text-anchor', 'start')
       .text(function (d) { return d; });
   }
 
