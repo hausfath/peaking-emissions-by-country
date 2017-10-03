@@ -281,7 +281,9 @@ function bubbleChart() {
    */
   function showDetail(d) {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black');
+    d3.select(this)
+    .attr('stroke', 'black')
+    .attr('opacity', 0.7);
 
     var content = '<h3>' +
                   d.name +
@@ -302,7 +304,8 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.group)).darker())
+      .attr('opacity', 1);
 
     tooltip.hideTooltip();
   }
