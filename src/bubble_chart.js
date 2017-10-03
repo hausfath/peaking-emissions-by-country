@@ -403,14 +403,14 @@ function initialTransition () {
   d3.select("#year").classed('active', true);
   d3.select("#all").classed('active', false);
   myBubbleChart.toggleDisplay("year");
-  setTimeout(viewToolbar, 1000);
+  setTimeout(viewToolbar, 600);
 
 }
 
 // make tool bar visible once transitions have completed
 
 function viewToolbar () {
-  d3.select("#toolbar").style("visibility", "visible");
+  d3.select("#toolbar").transition().duration(900).style("opacity", "1");
 }
 
 setTimeout(initialTransition, 2000);
