@@ -396,15 +396,22 @@ d3.csv('data/dummy-data-2.csv', display);
 // setup the buttons.
 setupButtons();
 
-//
 
-// possible option, but I it needs to be chained to a transition and don't want it to be called at the end of every trnasition: .on("end", setTimeout(initialTransition, 2000))
+// once loaded, switch to timeline view
 
 function initialTransition () {
   d3.select("#year").classed('active', true);
   d3.select("#all").classed('active', false);
   myBubbleChart.toggleDisplay("year");
+  setTimeout(viewToolbar, 1000);
+
 }
 
-setTimeout(initialTransition, 1800);
+// make tool bar visible once transitions have completed
+
+function viewToolbar () {
+  d3.select("#toolbar").style("visibility", "visible");
+}
+
+setTimeout(initialTransition, 2000);
 
