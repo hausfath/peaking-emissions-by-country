@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Peaking emissions by country | Carbon Brief</title>
+  <meta name="description" content="Data visualisation of when different countries emissions have peaked">
+  <meta name="author" content="Rosamund Pearce">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/bubble_chart.css">
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="container">
+    <h1>Which countries have already reached peak carbon emissions?</h1>
+    <div id="toolbar">
+      <a href="#" id="all" class="button active">All</a>
+      <a href="#" id="year" class="button">On a timeline</a>
+    </div>
+    <div id="vis"></div>
+
+    <div class="footer">
+      <p>By Rosamund Pearce for Carbon Brief</p>
+      <strong>Data from the <a href='http://www.wri.org/'>World Resources Institute</a></strong>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="src/tooltip.js"></script>
+  <script src="src/bubble_chart.js"></script>
+
+
+</body>
+</html>
