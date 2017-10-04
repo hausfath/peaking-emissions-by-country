@@ -9,7 +9,8 @@
  */
 function bubbleChart() {
   // Constants for sizing
-  var width = parseInt(d3.select("#vis").style("width"));
+  // var width = parseInt(d3.select("#vis").style("width"));
+  var width = 1400;
   var height = 600;
 
   // tooltip for mouseover functionality
@@ -37,8 +38,10 @@ function bubbleChart() {
     2010: 4 * width / 10,
     2020: 5 * width / 10,
     2030: 6 * width / 10,
-    "Unknown": 8 * width / 10
+    "Unknown": 9 * width / 10
   };
+
+  console.log(yearsTitleX);
 
   // @v4 strength to apply to the position forces
   var forceStrength = 0.03;
@@ -156,8 +159,10 @@ function bubbleChart() {
     // with desired size.
     svg = d3.select(selector)
       .append('svg')
-      .attr('width', width)
-      .attr('height', height);
+      .attr("viewBox", "0 0 " + (width) + " " + (height))
+      .attr("preserveAspectRatio", "xMidYMid meet");
+      // .attr('width', width)
+      // .attr('height', height);
 
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
@@ -170,7 +175,7 @@ function bubbleChart() {
     //  enter selection to apply our transtition to below.
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
-      .attr('r', 0)
+      .attr('r', 0)  // initial radius zero to allow transition
       .attr('fill', function (d) { return fillColor(d.group); })
       .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
       .attr('stroke-width', 2)
@@ -269,8 +274,8 @@ function bubbleChart() {
     years.enter().append('text')
       .attr('class', 'year')
       .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', 50)
-      .attr('text-anchor', 'start')
+      .attr('y', 80)
+      .attr('text-anchor', 'end')
       .text(function (d) { return d; });
   }
 
