@@ -10,7 +10,7 @@
 function bubbleChart() {
   // Constants for sizing
   // var width = parseInt(d3.select("#vis").style("width"));
-  var width = 1400;
+  var width = 1550;
   var height = 600;
 
   // tooltip for mouseover functionality
@@ -21,24 +21,24 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var yearCenters = {
-    1990: { x: 2 * width / 10, y: height / 2 },
-    2000: { x: 3 * width / 10, y: height / 2 },
-    2010: { x: 4 * width / 10, y: height / 2 },
-    2020: { x: 5 * width / 10, y: height / 2 },
-    2030: { x: 6 * width / 10, y: height / 2 },
-    2050: { x: 8 * width / 10, y: height / 2 }
+    1990: { x: 1 * width / 7, y: height / 2 },
+    2000: { x: 2 * width / 7, y: height / 2 },
+    2010: { x: 3 * width / 7, y: height / 2 },
+    2020: { x: 4 * width / 7, y: height / 2 },
+    2030: { x: 5 * width / 7, y: height / 2 },
+    2050: { x: 6 * width / 7, y: height / 2 }
   };
 
   console.log(yearCenters);
 
-  // X locations of the year titles.
+  // X locations of the year titles. nb html markup doesn't work
   var yearsTitleX = {
-    1990: 2 * width / 10,
-    2000: 3 * width / 10,
-    2010: 4 * width / 10,
-    2020: 5 * width / 10,
-    2030: 6 * width / 10,
-    "Unknown": 9 * width / 10
+    "1990 or earlier": 1.5 * width / 10,
+    "2000 or earlier": 2.7 * width / 10,
+    "2010 or earlier": 3.8 * width / 10,
+    "2020 or earlier": 5 * width / 10,
+    "2030 or earlier": 6.1 * width / 10,
+    "Peaking year unknown": 8.4 * width / 10
   };
 
   console.log(yearsTitleX);
@@ -274,8 +274,8 @@ function bubbleChart() {
     years.enter().append('text')
       .attr('class', 'year')
       .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', 80)
-      .attr('text-anchor', 'end')
+      .attr('y', 100)
+      .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }
 
