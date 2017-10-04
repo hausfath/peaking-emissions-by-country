@@ -33,12 +33,12 @@ function bubbleChart() {
 
   // X locations of the year titles. nb html markup doesn't work
   var yearsTitleX = {
-    "1990 or earlier": 1.5 * width / 10,
-    "2000 or earlier": 2.7 * width / 10,
-    "2010 or earlier": 3.8 * width / 10,
-    "2020 or earlier": 5 * width / 10,
-    "2030 or earlier": 6.1 * width / 10,
-    "Peaking year unknown": 8.4 * width / 10
+    "1990 or earlier": 0.8 * width / 7,
+    "2000 or earlier": 1.9 * width / 7,
+    "2010 or earlier": 2.9 * width / 7,
+    "2020 or earlier": 4 * width / 7,
+    "2030 or earlier": 4.9 * width / 7,
+    "Peaking year unknown": 6.2 * width / 7
   };
 
   console.log(yearsTitleX);
