@@ -78,6 +78,11 @@ p {
   font-family: PT Sans;
 }
 
+strong {
+  font-family: PT Sans;
+  font-weight: bold;
+}
+
 h1 {
   font-family: PT Sans Narrow;
   font-weight: normal;
