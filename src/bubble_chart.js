@@ -11,7 +11,7 @@ function bubbleChart() {
   // Constants for sizing
   // var width = parseInt(d3.select("#vis").style("width"));
   var width = 1550;
-  var height = 600;
+  var height = 540;
 
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('gates_tooltip', 240);
