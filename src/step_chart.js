@@ -2,31 +2,31 @@
 
 var data = [{
     year: 1990,
-    value: 21,
+    value: 0.21,
     baseline: "of 1990 emissions",
     countries: 20,
     type: "Peaked"
 },{
     year: 2000,
-    value: 20,
+    value: 0.20,
     baseline: "of 2000 emissions",
     countries: 34,
     type: "Peaked"
 },{
     year: 2010,
-    value: 36,
+    value: 0.36,
     baseline: "of 2010 emissions",
     countries: 46,
     type: "Peaked"
 },{
     year: 2020,
-    value: 40,
+    value: 0.40,
     baseline: "of 2010 emissions",
     countries: 51,
     type: "Will peak"
 },{
     year: 2030,
-    value: 60,
+    value: 0.60,
     baseline: "of 2010 emissions",
     countries: 58,
     type: "Will peak"
@@ -44,7 +44,7 @@ var data = [{
 
 // set width and height constants
 
-var margin = {top: 30, right: 80, bottom: 30, left: 30},
+var margin = {top: 30, right: 80, bottom: 30, left: 40},
     width = 1400 - margin.left - margin.right,
     height = 440 - margin.top - margin.bottom;
 
@@ -60,7 +60,7 @@ var xScale = d3.scaleLinear()
 .range([0, width]); // output
 
 var yScale = d3.scaleLinear()
-.domain([0, 100]) // input 
+.domain([0, 1]) // input 
 .range([height, 0]); // output 
 
 var fillColor = d3.scaleOrdinal()
@@ -86,15 +86,16 @@ var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("di
 // call the x axis in a group tag
 
 svg.append("g")
-.attr("class", "x axis")
+.attr("class", "x-axis")
 .attr("transform", 'translate(' + margin.left + ',' + (margin.top + height) + ')')
 .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 
 // call the y axis in a group tag
 svg.append("g")
-.attr("class", "y axis")
+.attr("class", "y-axis")
 .attr("transform", 'translate(' + margin.left + ',' + margin.top + ')')
-.call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
+.call(d3.axisLeft(yScale) // Create an axis component with d3.axisLeft
+    .ticks(4, "%")); 
 
 // add bar chart
 
@@ -115,7 +116,7 @@ svg.selectAll(".bar")
       .style("left", d3.event.pageX - 50 + "px")
       .style("top", d3.event.pageY - 70 + "px")
       .style("display", "inline-block")
-      .html((d.value) + "% <br>" + (d.baseline));
+      .html(((d.value)*100) + "% <br>" + (d.baseline));
 })
 .on("mouseout", function(d){ tooltip.style("display", "none")});
 

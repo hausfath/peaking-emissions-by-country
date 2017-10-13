@@ -1,3 +1,18 @@
+#step-chart {
+  width: 100%;
+  height: 450px;
+}
+
+.x-axis {
+  font-size: 16px;
+  font-family: PT Sans;
+}
+
+.y-axis {
+  font-size: 16px;
+  font-family: PT Sans;
+}
+
 .line {
     fill: none;
     stroke: #333333;
@@ -39,9 +54,4 @@
 
 .tooltip .name {
   font-weight:bold;
-}
-
-#step-chart {
-  width: 100%;
-  height: 450px;
 }
