@@ -102,15 +102,7 @@ svg.append("path")
 .datum(data) // Binds data to the line 
 .attr("class", "line") // Assign a class for styling 
 .attr("d", line)
-.attr("fill", "none")
-.on("mousemove", function(d){
-    tooltip
-      .style("left", d3.event.pageX - 50 + "px")
-      .style("top", d3.event.pageY - 70 + "px")
-      .style("display", "inline-block")
-      .html((d.value) + "<br>" + (d.baseline));
-})
-.on("mouseout", function(d){ tooltip.style("display", "none");});; // calls the line generator 
+.attr("fill", "none"); // calls the line generator 
 
 // Appends a circle for each datapoint 
 svg.selectAll(".dot")
@@ -119,4 +111,12 @@ svg.selectAll(".dot")
 .attr("class", "dot") // Assign a class for styling
 .attr("cx", function(d) { return xScale(d.year) })
 .attr("cy", function(d) { return yScale(d.value) })
-.attr("r", 5);
+.attr("r", 5)
+.on("mousemove", function(d){
+    tooltip
+      .style("left", d3.event.pageX - 50 + "px")
+      .style("top", d3.event.pageY - 70 + "px")
+      .style("display", "inline-block")
+      .html((d.value) + "% <br>" + (d.baseline));
+})
+.on("mouseout", function(d){ tooltip.style("display", "none");});
