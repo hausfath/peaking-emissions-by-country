@@ -44,9 +44,9 @@ var data = [{
 
 // set width and height constants
 
-width = 1550;
-
-height = 500;
+var margin = {top: 30, right: 60, bottom: 30, left: 60},
+    width = 1550 - margin.left - margin.right,
+    height = 460 - margin.top - margin.bottom;
 
 // set the ranges
 
@@ -69,15 +69,15 @@ var fillColor = d3.scaleOrdinal()
 
 // define the line
 var line = d3.line()
-.x(function(d) { return xScale(d.year); })
-.y(function(d) { return yScale(d.value); })
+.x(function(d) { return xScale(d.year) + margin.left; })
+.y(function(d) { return yScale(d.value) + margin.top; })
 .curve(d3.curveStepAfter);     //apply stepping to the line
 
 
 // append svg and tooltip
 
 var svg = d3.select("#step-chart").append("svg")
-.attr("viewBox", "0 0 " + (width) + " " + (height))
+.attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
 .attr("preserveAspectRatio", "xMidYMid meet")
 .append("g");
 
@@ -87,12 +87,13 @@ var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("di
 
 svg.append("g")
 .attr("class", "x axis")
-.attr("transform", "translate(0," + height + ")")
+.attr("transform", 'translate(' + margin.left + ',' + (margin.top + height) + ')')
 .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 
 // call the y axis in a group tag
 svg.append("g")
 .attr("class", "y axis")
+.attr("transform", 'translate(' + margin.left + ',' + margin.top + ')')
 .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 // add bar chart
@@ -104,9 +105,9 @@ svg.selectAll(".bar")
 .data(data)
 .enter().append("rect")
 .attr("class", "bar")
-.attr("x", function(d) { return xScale(d.year); })
+.attr("x", function(d) { return xScale(d.year) + margin.left; })
 .attr("width", barWidth)
-.attr("y", function(d) { return yScale(d.value); })
+.attr("y", function(d) { return yScale(d.value) + margin.top; })
 .attr("height", function(d) { return height - yScale(d.value); })
 .style("fill", function(d) { return fillColor(d.type)})
 .on("mousemove", function(d){
