@@ -1,11 +1,6 @@
 // nb baseline changes in different decades so make a note of this somewhere
 
 var data = [{
-    year: 1980,
-    value: 21,
-    baseline: "of 1990 emissions",
-    countries: 20
-},{
     year: 1990,
     value: 21,
     baseline: "of 1990 emissions",
@@ -41,13 +36,13 @@ height = 500;
 
 // set the ranges
 
-var x = d3.scaleTime().range([0, width]);
+var x = d3.scaleBand().range([0, width]);
 var y = d3.scaleLinear().range([height, 0]);
 
 // define scales
 
 var xScale = d3.scaleLinear()
-.domain([1980, 2040]) // input
+.domain([1990, 2040]) // input
 .range([0, width]); // output
 
 var yScale = d3.scaleLinear()
@@ -58,15 +53,7 @@ var yScale = d3.scaleLinear()
 var line = d3.line()
 .x(function(d) { return xScale(d.year); })
 .y(function(d) { return yScale(d.value); })
-.curve(d3.curveStepBefore);     //apply stepping to the line
-
-var area = d3.area()
-.x(function(d) { return xScale(d.year); })
-.y1(function(d) { return yScale(d.value); })
-.curve(d3.curveStepBefore);
-
-
-area.y0(y(0));
+.curve(d3.curveStepAfter);     //apply stepping to the line
 
 
 // append svg and tooltip
@@ -90,12 +77,27 @@ svg.append("g")
 .attr("class", "y axis")
 .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
-// add the area before line
+// add bar chart
 
-svg.append("path")
-.datum(data) // Binds data to the line 
-.attr("class", "area") // Assign a class for styling 
-.attr("d", area); // calls the line generator 
+//get the width of each bar 
+var barWidth = width / data.length;
+
+svg.selectAll(".bar")
+.data(data)
+.enter().append("rect")
+.attr("class", "bar")
+.attr("x", function(d) { return xScale(d.year); })
+.attr("width", barWidth)
+.attr("y", function(d) { return yScale(d.value); })
+.attr("height", function(d) { return height - yScale(d.value); })
+.on("mousemove", function(d){
+    tooltip
+      .style("left", d3.event.pageX - 50 + "px")
+      .style("top", d3.event.pageY - 70 + "px")
+      .style("display", "inline-block")
+      .html((d.value) + "% <br>" + (d.baseline));
+})
+.on("mouseout", function(d){ tooltip.style("display", "none")});
 
 // Append the path, bind the data, and call the line generator 
 svg.append("path")
@@ -104,19 +106,5 @@ svg.append("path")
 .attr("d", line)
 .attr("fill", "none"); // calls the line generator 
 
-// Appends a circle for each datapoint 
-svg.selectAll(".dot")
-.data(data)
-.enter().append("circle") // Uses the enter().append() method
-.attr("class", "dot") // Assign a class for styling
-.attr("cx", function(d) { return xScale(d.year) })
-.attr("cy", function(d) { return yScale(d.value) })
-.attr("r", 5)
-.on("mousemove", function(d){
-    tooltip
-      .style("left", d3.event.pageX - 50 + "px")
-      .style("top", d3.event.pageY - 70 + "px")
-      .style("display", "inline-block")
-      .html((d.value) + "% <br>" + (d.baseline));
-})
-.on("mouseout", function(d){ tooltip.style("display", "none");});
+
+
