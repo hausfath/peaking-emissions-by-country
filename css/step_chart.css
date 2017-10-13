@@ -5,12 +5,12 @@
   }
   
   .bar {
-    fill: #ade2ea;
+    /* fill: #ade2ea; */
     fill-opacity: 0.6;
   }
 
-  .dot {
-    fill: #333333;
+  .bar:hover {
+    fill-opacity: 0.3;
   }
 
   .tooltip {

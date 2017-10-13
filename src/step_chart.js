@@ -4,27 +4,41 @@ var data = [{
     year: 1990,
     value: 21,
     baseline: "of 1990 emissions",
-    countries: 20
+    countries: 20,
+    type: "Peaked"
 },{
     year: 2000,
     value: 20,
     baseline: "of 2000 emissions",
-    countries: 34
+    countries: 34,
+    type: "Peaked"
 },{
     year: 2010,
     value: 36,
     baseline: "of 2010 emissions",
-    countries: 46
+    countries: 46,
+    type: "Peaked"
 },{
     year: 2020,
     value: 40,
     baseline: "of 2010 emissions",
-    countries: 51
+    countries: 51,
+    type: "Will peak"
 },{
     year: 2030,
     value: 60,
     baseline: "of 2010 emissions",
-    countries: 58
+    countries: 58,
+    type: "Will peak"
+    
+},
+{
+    year: 2040,
+    value: 0,
+    baseline: "",
+    countries: 0,
+    type: "Unknown"
+
 }
 ]
 
@@ -42,12 +56,16 @@ var y = d3.scaleLinear().range([height, 0]);
 // define scales
 
 var xScale = d3.scaleLinear()
-.domain([1990, 2040]) // input
+.domain([1990, 2050]) // input
 .range([0, width]); // output
 
 var yScale = d3.scaleLinear()
 .domain([0, 100]) // input 
 .range([height, 0]); // output 
+
+var fillColor = d3.scaleOrdinal()
+.domain(['Peaked', 'Will peak', 'Unknown'])
+.range(['#ade2ea', '#999999', '#f3f3f3']);
 
 // define the line
 var line = d3.line()
@@ -90,6 +108,7 @@ svg.selectAll(".bar")
 .attr("width", barWidth)
 .attr("y", function(d) { return yScale(d.value); })
 .attr("height", function(d) { return height - yScale(d.value); })
+.style("fill", function(d) { return fillColor(d.type)})
 .on("mousemove", function(d){
     tooltip
       .style("left", d3.event.pageX - 50 + "px")
