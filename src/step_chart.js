@@ -44,9 +44,9 @@ var data = [{
 
 // set width and height constants
 
-var margin = {top: 30, right: 60, bottom: 30, left: 60},
-    width = 1550 - margin.left - margin.right,
-    height = 460 - margin.top - margin.bottom;
+var margin = {top: 30, right: 80, bottom: 30, left: 30},
+    width = 1400 - margin.left - margin.right,
+    height = 440 - margin.top - margin.bottom;
 
 // set the ranges
 
