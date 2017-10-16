@@ -58,15 +58,21 @@
 
 /* make responsive */
 
+@media (max-width: 1300px) {
+  #step-chart {
+    height: 350px;
+  }
+}
+
 @media (max-width: 1200px) {
   #step-chart {
-    height: 300px;
+    height: 320px;
   }
 }
 
 @media (max-width: 1000px) {
   #step-chart {
-    height: 350px;
+    height: 300px;
   }
 }
 
