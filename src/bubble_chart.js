@@ -18,15 +18,15 @@ function bubbleChart() {
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: width / 2, y: height / 2 };
+  var center = { x: width / 2, y: height / 1.9 };
 
   var yearCenters = {
-    1990: { x: 1 * width / 7, y: height / 2 },
-    2000: { x: 2 * width / 7, y: height / 2 },
-    2010: { x: 3 * width / 7, y: height / 2 },
-    2020: { x: 4 * width / 7, y: height / 2 },
-    2030: { x: 5 * width / 7, y: height / 2 },
-    2050: { x: 6 * width / 7, y: height / 2 }
+    1990: { x: 1 * width / 7, y: height / 1.9 },
+    2000: { x: 2 * width / 7, y: height / 1.9 },
+    2010: { x: 3 * width / 7, y: height / 1.9 },
+    2020: { x: 4 * width / 7, y: height / 1.9 },
+    2030: { x: 5 * width / 7, y: height / 1.9 },
+    2050: { x: 6 * width / 7, y: height / 1.9 }
   };
 
   console.log(yearCenters);

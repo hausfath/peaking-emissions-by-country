@@ -78,7 +78,7 @@ var data2 =[
 
 // set width and height constants
 
-var margin = {top: 30, right: 80, bottom: 30, left: 50},
+var margin = {top: 30, right: 80, bottom: 50, left: 50},
     width = 1400 - margin.left - margin.right,
     height = 440 - margin.top - margin.bottom;
 
@@ -161,6 +161,17 @@ svg.append("path")
 .attr("class", "line") // Assign a class for styling 
 .attr("d", line)
 .attr("fill", "none"); // calls the line generator 
+
+
+// add x axis label
+
+svg.append("g")
+    .attr("class", "label")
+    .append("text")
+    .attr("x", (width + 10))
+    .attr("y", (height*1.2))
+    .style("text-anchor", "end")
+    .text("Year");
 
 
 
