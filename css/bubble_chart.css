@@ -72,7 +72,37 @@ a, a:visited, a:active {
 }
 
 .footer {
-  text-align: center;
+  text-align: left;
+  vertical-align: top;
+  height: 80px;
+}
+
+.footer > div { 
+  display: table-cell; 
+  height: 80px;
+  padding-right: 20px;
+}
+
+#wri-logo {
+  z-index: 9000;
+  height: 80px;
+  width: 150px;
+  background-image:url(wri-logo.png);
+  background-repeat: no-repeat;
+  vertical-align: bottom;
+}
+
+#cb-logo {
+  z-index: 9000;
+  height: 80px;
+  width: 150px;
+  background-image:url(cb-logo.png);
+  background-repeat: no-repeat;
+  vertical-align: bottom;
+}
+
+#credit {
+  height: 80px;
 }
 
 p {

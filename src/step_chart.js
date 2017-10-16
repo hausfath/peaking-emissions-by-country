@@ -1,46 +1,80 @@
 // nb baseline changes in different decades so make a note of this somewhere
 
 var data = [{
-    year: 1990,
+    year: 1980,
     value: 0.21,
     baseline: "of 1990 emissions",
     countries: 20,
     type: "Peaked"
 },{
-    year: 2000,
+    year: 1990,
     value: 0.20,
     baseline: "of 2000 emissions",
     countries: 34,
     type: "Peaked"
 },{
-    year: 2010,
+    year: 2000,
     value: 0.36,
     baseline: "of 2010 emissions",
     countries: 46,
     type: "Peaked"
 },{
-    year: 2020,
+    year: 2010,
     value: 0.40,
     baseline: "of 2010 emissions",
     countries: 51,
     type: "Will peak"
 },{
-    year: 2030,
+    year: 2020,
     value: 0.60,
     baseline: "of 2010 emissions",
     countries: 58,
     type: "Will peak"
     
-},
-{
-    year: 2040,
-    value: 0,
-    baseline: "",
-    countries: 0,
-    type: "Unknown"
-
 }
 ]
+
+var data2 =[
+    {
+        year: 1980,
+        value: 0.21,
+    },{
+        year: 1990,
+        value: 0.21,
+    },{
+        year: 1990,
+        value: 0.20,
+    },{
+        year: 2000,
+        value: 0.20,
+    },
+    {
+        year: 2000,
+        value: 0.36,
+    },
+    {
+        year: 2010,
+        value: 0.36,
+    },{
+        year: 2010,
+        value: 0.4,
+    },
+    {
+        year: 2020,
+        value: 0.4,
+    },
+    {
+        year: 2020,
+        value: 0.6,
+    },
+    {
+        year: 2030,
+        value: 0.6,
+    },
+
+
+]
+
 
 // set width and height constants
 
@@ -56,7 +90,7 @@ var y = d3.scaleLinear().range([height, 0]);
 // define scales
 
 var xScale = d3.scaleLinear()
-.domain([1990, 2050]) // input
+.domain([1980, 2040]) // input
 .range([0, width]); // output
 
 var yScale = d3.scaleLinear()
@@ -70,8 +104,8 @@ var fillColor = d3.scaleOrdinal()
 // define the line
 var line = d3.line()
 .x(function(d) { return xScale(d.year) + margin.left; })
-.y(function(d) { return yScale(d.value) + margin.top; })
-.curve(d3.curveStepAfter);     //apply stepping to the line
+.y(function(d) { return yScale(d.value) + margin.top; });
+//.curve(d3.curveStepAfter);     //apply stepping to the line
 
 
 // append svg and tooltip
@@ -100,7 +134,7 @@ svg.append("g")
 // add bar chart
 
 //get the width of each bar 
-var barWidth = width / data.length;
+var barWidth = width / (data.length + 1);
 
 svg.selectAll(".bar")
 .data(data)
@@ -122,7 +156,7 @@ svg.selectAll(".bar")
 
 // Append the path, bind the data, and call the line generator 
 svg.append("path")
-.datum(data) // Binds data to the line 
+.datum(data2) // Binds data to the line 
 .attr("class", "line") // Assign a class for styling 
 .attr("d", line)
 .attr("fill", "none"); // calls the line generator 
