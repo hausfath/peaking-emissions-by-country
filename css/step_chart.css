@@ -1,6 +1,6 @@
 #step-chart {
   width: 100%;
-  height: 450px;
+  height: 400px;
 }
 
 .x-axis {
@@ -54,4 +54,30 @@
 
 .tooltip .name {
   font-weight:bold;
+}
+
+/* make responsive */
+
+@media (max-width: 1200px) {
+  #step-chart {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #step-chart {
+    height: 350px;
+  }
+}
+
+@media (max-width: 850px) {
+  #step-chart {
+    height: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  #step-chart {
+    height: 180px;
+  }
 }

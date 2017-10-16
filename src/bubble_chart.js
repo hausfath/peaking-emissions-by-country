@@ -9,7 +9,7 @@
  */
 function bubbleChart() {
   // Constants for sizing
-  // var width = parseInt(d3.select("#vis").style("width"));
+  // will be changing viewport so don't need to make responsive here
   var width = 1550;
   var height = 540;
 
@@ -351,7 +351,7 @@ function display(error, data) {
     console.log(error);
   }
 
-  myBubbleChart('#vis', data);
+  myBubbleChart('#bubble-chart', data);
 }
 
 /*

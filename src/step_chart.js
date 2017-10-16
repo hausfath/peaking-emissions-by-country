@@ -78,7 +78,7 @@ var data2 =[
 
 // set width and height constants
 
-var margin = {top: 30, right: 80, bottom: 30, left: 40},
+var margin = {top: 30, right: 80, bottom: 30, left: 50},
     width = 1400 - margin.left - margin.right,
     height = 440 - margin.top - margin.bottom;
 
@@ -122,7 +122,8 @@ var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("di
 svg.append("g")
 .attr("class", "x-axis")
 .attr("transform", 'translate(' + margin.left + ',' + (margin.top + height) + ')')
-.call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
+.call(d3.axisBottom(xScale)
+    .tickFormat(d3.format("d"))); // Create an axis component with d3.axisBottom
 
 // call the y axis in a group tag
 svg.append("g")
