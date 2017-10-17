@@ -89,6 +89,7 @@ a, a:visited, a:active {
   height: 80px;
   width: 150px;
   background-image:url(wri-logo.png);
+  image-rendering: crisp-edges;
   background-repeat: no-repeat;
   vertical-align: bottom;
 }
@@ -98,6 +99,7 @@ a, a:visited, a:active {
   height: 80px;
   width: 150px;
   background-image:url(cb-logo.png);
+  image-rendering: crisp-edges;
   background-repeat: no-repeat;
   vertical-align: bottom;
 }
