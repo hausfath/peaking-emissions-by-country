@@ -421,3 +421,67 @@ function viewToolbar () {
 
 setTimeout(initialTransition, 2000);
 
+// set up dropdown
+
+var varState = "";
+
+// the .bubble method is not going to work because the bubbles do not have data associated with them once drawn
+
+function filterBubbles (varState) { // filter that can be used slightly differently each time
+
+  if (varState == "Africa" || "Asia" || "Europe" || "Oceania" || "North America" || "South America") {
+    // var filteredData = d3.selectAll(".bubble").filter(function(d){
+    //   return continent == [varState]; 
+    // })
+    // console.log(varState);
+
+    d3.csv("data/dummy-data-3.csv", function(csv, varState) {
+      filteredData = csv.filter(function(row) {
+        return row['continent'] == [varState]; 
+      });
+
+      console.log(filteredData.length, filteredData);
+
+      function display(error, filteredData) {
+        if (error) {
+          console.log(error);
+        }
+      
+        myBubbleChart('#bubble-chart', filteredData);
+      }
+      
+    });
+
+    
+  }
+  else if (varState == "All continents") { //since All Continents will not be a variable in the data
+    function display(error, data) {
+      if (error) {
+        console.log(error);
+      }
+    
+      myBubbleChart('#bubble-chart', data);
+    }
+  }
+
+}
+
+$("#dropdown").change(function() {
+
+  varState = $(this).val();
+
+  d3.selectAll("#bubble-chart svg").remove();
+
+  console.log(varState);
+
+  filterBubbles(varState);
+
+})
+
+// reset dropdown on window reload
+
+$(document).ready(function () {
+  $("select").each(function () {
+      $(this).val($(this).find('option[selected]').val());
+  });
+})
