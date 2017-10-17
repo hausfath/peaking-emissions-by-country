@@ -111,7 +111,7 @@ function bubbleChart() {
     // @v4: new flattened scale names.
     var radiusScale = d3.scalePow()
       .exponent(0.5)
-      .range([2, 85])
+      .range([2, 95])
       .domain([0, maxAmount]);
 
     // Use map() to convert raw data into node data.
@@ -124,6 +124,7 @@ function bubbleChart() {
         value: +d.carbon_footprint,
         name: d.country,
         unfccc: d.unfccc,
+        continent: d.continent,
         group: d.peaked_or_not,         // will determine colour
         year: d.timeline_year,
         peak_year: d.peak_year,
@@ -298,7 +299,7 @@ function bubbleChart() {
                   '</span><br/>' +
                   '<span class="name">Carbon footprint*: </span><span class="value">' +
                   addCommas(d.value) +
-                  ' kt CO2E</span>';
+                  ' tonnes CO2E</span>';
 
     tooltip.showTooltip(content, d3.event);
   }
@@ -396,7 +397,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/dummy-data-2.csv', display);
+d3.csv('data/dummy-data-3.csv', display);
 
 // setup the buttons.
 setupButtons();
