@@ -429,39 +429,32 @@ var varState = "";
 
 function filterBubbles (varState) { // filter that can be used slightly differently each time
 
-  if (varState == "Africa" || "Asia" || "Europe" || "Oceania" || "North America" || "South America") {
+  if (varState === "All continents") {
     // var filteredData = d3.selectAll(".bubble").filter(function(d){
     //   return continent == [varState]; 
     // })
-    // console.log(varState);
+    // console.log(filteredData.length);
 
-    d3.csv("data/dummy-data-3.csv", function(csv, varState) {
-      filteredData = csv.filter(function(row) {
-        return row['continent'] == [varState]; 
-      });
+    // d3.csv("data/dummy-data-3.csv", function(data, varState) {
+    //   filteredData = data.filter(function(row) {
+    //     return row['continent'] == [varState]; 
+    //   });
 
-      console.log(filteredData.length, filteredData);
+    //   console.log(filteredData.length, filteredData);
 
-      function display(error, filteredData) {
-        if (error) {
-          console.log(error);
-        }
+    //   display(error, filteredData);
       
-        myBubbleChart('#bubble-chart', filteredData);
-      }
-      
-    });
+    // });
+
+    console.log("if");
+
+    d3.csv('data/dummy-data-3.csv', display);
 
     
   }
-  else if (varState == "All continents") { //since All Continents will not be a variable in the data
-    function display(error, data) {
-      if (error) {
-        console.log(error);
-      }
+  else { //since All Continents will not be a variable in the data
+    console.log("else");
     
-      myBubbleChart('#bubble-chart', data);
-    }
   }
 
 }
