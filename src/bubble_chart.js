@@ -33,12 +33,12 @@ function bubbleChart() {
 
   // X locations of the year titles. nb html markup doesn't work
   var yearsTitleX = {
-    "1990 or earlier": 0.8 * width / 7,
-    "2000 or earlier": 1.9 * width / 7,
-    "2010 or earlier": 2.9 * width / 7,
-    "2020 or earlier": 4 * width / 7,
-    "2030 or earlier": 4.9 * width / 7,
-    "Peaking year unknown": 6.2 * width / 7
+    "1990 or earlier": 0.7 * width / 7,
+    "1991-2000": 1.8 * width / 7,
+    "2001-2010": 2.85 * width / 7,
+    "2011-2020": 3.88 * width / 7,
+    "2021-2030": 4.9 * width / 7,
+    "Peaking year unknown": 6.25 * width / 7
   };
 
   console.log(yearsTitleX);
@@ -429,8 +429,20 @@ var varState = "";
 
 function filterBubbles (varState) { // filter that can be used slightly differently each time
 
-  if (varState === "All continents") {
-    // var filteredData = d3.selectAll(".bubble").filter(function(d){
+  if (varState === "All continents") {  //since All Continents will not be a variable in the data
+
+    console.log("if");
+
+    d3.csv('data/dummy-data-3.csv', display);
+    setTimeout(initialTransition, 300);
+
+    
+  }
+  else {
+
+    console.log("else");
+
+        // var filteredData = d3.selectAll(".bubble").filter(function(d){
     //   return continent == [varState]; 
     // })
     // console.log(filteredData.length);
@@ -445,15 +457,6 @@ function filterBubbles (varState) { // filter that can be used slightly differen
     //   display(error, filteredData);
       
     // });
-
-    console.log("if");
-
-    d3.csv('data/dummy-data-3.csv', display);
-
-    
-  }
-  else { //since All Continents will not be a variable in the data
-    console.log("else");
     
   }
 
