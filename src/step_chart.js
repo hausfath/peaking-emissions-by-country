@@ -1,75 +1,73 @@
 // nb baseline changes in different decades so make a note of this somewhere
 
 var data = [{
-    year: 1980,
-    value: 0.21,
-    baseline: "of 1990 emissions",
-    countries: 20,
+    year: 1985,
+    label: 1990,
+    value: 0.102,
+    countries: 200,
     type: "Peaked"
 },{
-    year: 1990,
-    value: 0.20,
-    baseline: "of 2000 emissions",
-    countries: 34,
+    year: 1995,
+    label: 2000,
+    value: 0.146,
+    countries: 200,
     type: "Peaked"
 },{
-    year: 2000,
-    value: 0.36,
-    baseline: "of 2010 emissions",
-    countries: 46,
+    year: 2005,
+    label: 2010,
+    value: 0.364,
+    countries: 200,
     type: "Peaked"
 },{
-    year: 2010,
-    value: 0.40,
-    baseline: "of 2010 emissions",
-    countries: 51,
+    year: 2015,
+    label: 2020,
+    value: 0.404,
+    countries: 200,
     type: "Will peak"
 },{
-    year: 2020,
-    value: 0.60,
-    baseline: "of 2010 emissions",
-    countries: 58,
+    year: 2025,
+    label: 2030,
+    value: 0.647,
+    countries: 200,
     type: "Will peak"
-    
-}
-]
+}]
 
 var data2 =[
     {
-        year: 1980,
-        value: 0.21,
+        year: 1985,
+        value: 0.102,
     },{
-        year: 1990,
-        value: 0.21,
+        year: 1995,
+        value: 0.102,
     },{
-        year: 1990,
-        value: 0.20,
+        year: 1995,
+        value: 0.146,
     },{
-        year: 2000,
-        value: 0.20,
+        year: 2005,
+        value: 0.146,
     },
     {
-        year: 2000,
-        value: 0.36,
+        year: 2005,
+        value: 0.364,
     },
     {
-        year: 2010,
-        value: 0.36,
+        year: 2015,
+        value: 0.364,
     },{
-        year: 2010,
-        value: 0.4,
+        year: 2015,
+        value: 0.404,
     },
     {
-        year: 2020,
-        value: 0.4,
+        year: 2025,
+        value: 0.404,
     },
     {
-        year: 2020,
-        value: 0.6,
+        year: 2025,
+        value: 0.647,
     },
     {
-        year: 2030,
-        value: 0.6,
+        year: 2035,
+        value: 0.647,
     },
 
 
@@ -90,7 +88,7 @@ var y = d3.scaleLinear().range([height, 0]);
 // define scales
 
 var xScale = d3.scaleLinear()
-.domain([1980, 2040]) // input
+.domain([1985, 2045]) // input
 .range([0, width]); // output
 
 var yScale = d3.scaleLinear()
@@ -123,6 +121,7 @@ svg.append("g")
 .attr("class", "x-axis")
 .attr("transform", 'translate(' + margin.left + ',' + (margin.top + height) + ')')
 .call(d3.axisBottom(xScale)
+    .ticks(6)
     .tickFormat(d3.format("d"))); // Create an axis component with d3.axisBottom
 
 // call the y axis in a group tag
