@@ -173,4 +173,14 @@ svg.append("g")
     .text("Year");
 
 
+svg.append("g")
+    .attr("class", "label")
+    .append("text")
+    .attr("x", (-40))
+    .attr("y", (height/4))
+    .style("text-anchor", "end")
+    .text("Emission covered")
+    .attr("transform", "rotate(-90)");
+
+
 

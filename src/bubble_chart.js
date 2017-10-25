@@ -87,7 +87,7 @@ function bubbleChart() {
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleOrdinal()
     .domain(['Peaked', 'Will peak', 'Unknown'])
-    .range(['#ade2ea', '#999999', '#333333']);
+    .range(['#ade2ea', '#999999', '#424242']);
 
 
   /*
@@ -409,7 +409,7 @@ function initialTransition () {
   d3.select("#year").classed('active', true);
   d3.select("#all").classed('active', false);
   myBubbleChart.toggleDisplay("year");
-  setTimeout(viewToolbar, 200);
+  setTimeout(viewToolbar, 300);
 
 }
 
@@ -419,7 +419,7 @@ function viewToolbar () {
   d3.select("#toolbar").transition().duration(1200).style("opacity", "1");
 }
 
-setTimeout(initialTransition, 2000);
+setTimeout(initialTransition, 2500);
 
 // set up dropdown
 
