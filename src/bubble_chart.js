@@ -180,7 +180,7 @@ function bubbleChart() {
       .attr('fill', function (d) { return fillColor(d.group); })
       .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
       .attr('stroke-width', 2)
-      .on('mouseover', showDetail)
+      .on('mousemove', showDetail) // changed to mousemove rather than mouseout so that it follows the mouse as with the step chart
       .on('mouseout', hideDetail);
 
     // @v4 Merge the original empty selection and the enter selection
