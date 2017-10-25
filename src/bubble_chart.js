@@ -87,7 +87,7 @@ function bubbleChart() {
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleOrdinal()
     .domain(['Peaked', 'Will peak', 'Unknown'])
-    .range(['#ade2ea', '#999999', '#424242']);
+    .range(['#ade2ea', '#A0A0A0', '#424242']);
 
 
   /*
@@ -275,7 +275,7 @@ function bubbleChart() {
     years.enter().append('text')
       .attr('class', 'year')
       .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', 100)
+      .attr('y', 90)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }
@@ -298,8 +298,8 @@ function bubbleChart() {
                   d.peak_year +
                   '</span><br/>' +
                   '<span class="name">Carbon footprint*: </span><span class="value">' +
-                  addCommas(d.value) +
-                  ' tonnes CO2E</span>';
+                  formatDecimalComma((d.value)/1000000) +
+                  'm tonnes CO2E</span>';
 
     tooltip.showTooltip(content, d3.event);
   }
@@ -379,22 +379,8 @@ function setupButtons() {
     });
 }
 
-/*
- * Helper function to convert a number into a string
- * and add commas to it to improve presentation.
- */
-function addCommas(nStr) {
-  nStr += '';
-  var x = nStr.split('.');
-  var x1 = x[0];
-  var x2 = x.length > 1 ? '.' + x[1] : '';
-  var rgx = /(\d+)(\d{3})/;
-  while (rgx.test(x1)) {
-    x1 = x1.replace(rgx, '$1' + ',' + '$2');
-  }
 
-  return x1 + x2;
-}
+formatDecimalComma = d3.format(",.0f")
 
 // Load the data.
 d3.csv('data/dummy-data-3.csv', display);
@@ -423,61 +409,61 @@ setTimeout(initialTransition, 2500);
 
 // set up dropdown
 
-var varState = "";
+// var varState = "";
 
-// the .bubble method is not going to work because the bubbles do not have data associated with them once drawn
+// // the .bubble method is not going to work because the bubbles do not have data associated with them once drawn
 
-function filterBubbles (varState) { // filter that can be used slightly differently each time
+// function filterBubbles (varState) { // filter that can be used slightly differently each time
 
-  if (varState === "All continents") {  //since All Continents will not be a variable in the data
+//   if (varState === "All continents") {  //since All Continents will not be a variable in the data
 
-    console.log("if");
+//     console.log("if");
 
-    d3.csv('data/dummy-data-3.csv', display);
-    setTimeout(initialTransition, 300);
+//     d3.csv('data/dummy-data-3.csv', display);
+//     setTimeout(initialTransition, 300);
 
     
-  }
-  else {
+//   }
+//   else {
 
-    console.log("else");
+//     console.log("else");
 
-        // var filteredData = d3.selectAll(".bubble").filter(function(d){
-    //   return continent == [varState]; 
-    // })
-    // console.log(filteredData.length);
+//         // var filteredData = d3.selectAll(".bubble").filter(function(d){
+//     //   return continent == [varState]; 
+//     // })
+//     // console.log(filteredData.length);
 
-    // d3.csv("data/dummy-data-3.csv", function(data, varState) {
-    //   filteredData = data.filter(function(row) {
-    //     return row['continent'] == [varState]; 
-    //   });
+//     // d3.csv("data/dummy-data-3.csv", function(data, varState) {
+//     //   filteredData = data.filter(function(row) {
+//     //     return row['continent'] == [varState]; 
+//     //   });
 
-    //   console.log(filteredData.length, filteredData);
+//     //   console.log(filteredData.length, filteredData);
 
-    //   display(error, filteredData);
+//     //   display(error, filteredData);
       
-    // });
+//     // });
     
-  }
+//   }
 
-}
+// }
 
-$("#dropdown").change(function() {
+// $("#dropdown").change(function() {
 
-  varState = $(this).val();
+//   varState = $(this).val();
 
-  d3.selectAll("#bubble-chart svg").remove();
+//   d3.selectAll("#bubble-chart svg").remove();
 
-  console.log(varState);
+//   console.log(varState);
 
-  filterBubbles(varState);
+//   filterBubbles(varState);
 
-})
+// })
 
-// reset dropdown on window reload
+// // reset dropdown on window reload
 
-$(document).ready(function () {
-  $("select").each(function () {
-      $(this).val($(this).find('option[selected]').val());
-  });
-})
+// $(document).ready(function () {
+//   $("select").each(function () {
+//       $(this).val($(this).find('option[selected]').val());
+//   });
+// })
