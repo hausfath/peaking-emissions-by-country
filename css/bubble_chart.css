@@ -47,7 +47,8 @@ a, a:visited, a:active {
 
 .year {
   font-size: 21px;
-  fill: #999999;
+  fill: #333333;
+  font-weight: bold;
   cursor: default;
 }
 
@@ -142,6 +143,57 @@ h3 {
 
 a {
   font-family: PT Sans;
+}
+
+li {list-style-type: none;}
+
+#key {
+	position: absolute;
+	top: 80px;
+	right: calc(8% - 20px);
+	height: 50px;
+	width: 370px;
+	z-index: 500;
+	border-radius: 6px;
+	font-family: PT Sans, arial;
+}
+
+#key li {
+  display: inline-block;
+  padding-right: 15px;
+}
+
+#circle-1 {
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: #ade2ea;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#circle-2 {
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: #999999;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#circle-3 {
+  width: 12px;
+  height: 12px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: #424242;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 /* make responsive */
