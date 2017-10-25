@@ -162,7 +162,8 @@ li {
 	width: 370px;
 	z-index: 500;
 	border-radius: 6px;
-	font-family: PT Sans, arial;
+  font-family: PT Sans, arial;
+  opacity: 0;
 }
 
 #key li {
