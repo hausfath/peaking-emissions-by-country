@@ -49,6 +49,14 @@
 	z-index: 10;
 }
 
+.tooltip-title {
+  font-family: PT Sans Narrow;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+}
+
 .tooltip .title {
   font-size: 13px;
 }

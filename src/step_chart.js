@@ -73,12 +73,11 @@ var data2 =[
 
 ]
 
-
 // set width and height constants
 
 var margin = {top: 30, right: 80, bottom: 50, left: 50},
     width = 1400 - margin.left - margin.right,
-    height = 440 - margin.top - margin.bottom;
+    height = 420 - margin.top - margin.bottom;
 
 // set the ranges
 
@@ -149,14 +148,8 @@ svg.selectAll(".bar")
 .attr("y", function(d) { return yScale(d.value) + margin.top; })
 .attr("height", function(d) { return height - yScale(d.value); })
 .style("fill", function(d) { return fillColor(d.type)})
-.on("mousemove", function(d){
-    tooltip
-      .style("left", d3.event.pageX - 50 + "px")
-      .style("top", d3.event.pageY - 70 + "px")
-      .style("display", "inline-block")
-      .html("Emissions covered**: <b>" + (formatDecimal((d.value)*100)) + "</b>% <br>Countries peaked by " + d.label + ": <b>" + (d.countries) + "</b>");
-})
-.on("mouseout", function(d){ tooltip.style("display", "none")});
+.on("mousemove", showDetail)
+.on("mouseout", hideDetail);
 
 // Append the path, bind the data, and call the line generator 
 svg.append("path")
@@ -186,7 +179,7 @@ svg.append("g")
     .text("Emissions covered by countries that have")
     .attr("transform", "rotate(-90)");
 
-// bit of a hacky way of introducing a line break, but probably ok since th dimensions aren't going ot change
+// bit of a hacky way of introducing a line break, but probably ok since the dimensions aren't going to change
 
 svg.append("g")
     .attr("class", "label")
@@ -196,6 +189,47 @@ svg.append("g")
     .style("text-anchor", "end")
     .text("peaked or committed to peak")
     .attr("transform", "rotate(-90)");
+
+
+/*
+   * Function called on mouseover to display the
+   * details of a bubble in the tooltip.
+   */
+
+   // tooltip for mouseover functionality
+
+   var tooltip = floatingTooltip('gates_tooltip', 200);
+   
+   
+     function showDetail(d) {
+       // change outline to indicate hover state.
+       d3.select(this)
+       .attr('stroke', 'black')
+       .attr('opacity', 0.7);
+   
+       var content = '<h3>By ' +
+                       d.label +
+                     '</h3>' +
+                     '<span class="name">Emissions covered**: </span><span class="value">' +
+                     (formatDecimal((d.value)*100)) +
+                     '%</span><br/>' +
+                     '<span class="name">Countries peaked: </span><span class="value">' +
+                     d.countries +
+                     '</span>';
+   
+       tooltip.showTooltip(content, d3.event);
+     }
+   
+     /*
+      * Hides tooltip and resets styling on mouse mouseOut
+      */
+     function hideDetail(d) {
+       // reset outline
+       d3.select(this)
+         .attr('stroke', '0px');
+   
+       tooltip.hideTooltip();
+     }
 
 
 

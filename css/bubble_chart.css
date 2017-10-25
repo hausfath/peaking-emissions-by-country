@@ -210,7 +210,19 @@ li {
 
 /* larger margins above a certain width */
 
-@media (min-width: 1200px) {
+@media (min-width: 1600px) {
+  .container {
+    width: 65%;
+    margin-left: 14%;
+    margin-right: 16%; 
+    /* larger right margin to allow more space for tooltip */
+  }
+  #key {
+    right: calc(16% - 20px);    
+  }
+}
+
+@media (max-width:1600px) and (min-width: 1200px) {
   .container {
     width: 75%;
     margin-left: 11%;
