@@ -20,8 +20,16 @@ a, a:visited, a:active {
 }
 
 .button.active {
-  background: #000;
+  background: #333333;
   color: #fff;
+}
+
+.button:hover {
+  background:#333333;
+}
+
+.button.active:hover {
+  pointer-events: none;
 }
 
 
@@ -39,7 +47,7 @@ a, a:visited, a:active {
 
 .year {
   font-size: 21px;
-  fill: #aaa;
+  fill: #999999;
   cursor: default;
 }
 
@@ -106,6 +114,7 @@ a, a:visited, a:active {
 
 #credit {
   height: 80px;
+  width: 50%;
 }
 
 p {

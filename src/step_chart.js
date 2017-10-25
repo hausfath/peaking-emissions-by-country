@@ -4,31 +4,31 @@ var data = [{
     year: 1985,
     label: 1990,
     value: 0.102,
-    countries: 200,
+    countries: 18,
     type: "Peaked"
 },{
     year: 1995,
     label: 2000,
     value: 0.146,
-    countries: 200,
+    countries: 33,
     type: "Peaked"
 },{
     year: 2005,
     label: 2010,
     value: 0.364,
-    countries: 200,
+    countries: 48,
     type: "Peaked"
 },{
     year: 2015,
     label: 2020,
     value: 0.404,
-    countries: 200,
+    countries: 52,
     type: "Will peak"
 },{
     year: 2025,
     label: 2030,
     value: 0.647,
-    countries: 200,
+    countries: 57,
     type: "Will peak"
 }]
 
@@ -136,6 +136,10 @@ svg.append("g")
 //get the width of each bar 
 var barWidth = width / (data.length + 1);
 
+// limit tooltip to one decimal place
+
+var formatDecimal = d3.format(".1f");
+
 svg.selectAll(".bar")
 .data(data)
 .enter().append("rect")
@@ -150,7 +154,7 @@ svg.selectAll(".bar")
       .style("left", d3.event.pageX - 50 + "px")
       .style("top", d3.event.pageY - 70 + "px")
       .style("display", "inline-block")
-      .html(((d.value)*100) + "% <br>" + (d.baseline));
+      .html("Emissions covered**: <b>" + (formatDecimal((d.value)*100)) + "</b>% <br>Countries peaked by " + d.label + ": <b>" + (d.countries) + "</b>");
 })
 .on("mouseout", function(d){ tooltip.style("display", "none")});
 
@@ -167,8 +171,8 @@ svg.append("path")
 svg.append("g")
     .attr("class", "label")
     .append("text")
-    .attr("x", (width + 10))
-    .attr("y", (height*1.2))
+    .attr("x", (width + 50))
+    .attr("y", (height*1.17))
     .style("text-anchor", "end")
     .text("Year");
 
@@ -176,10 +180,21 @@ svg.append("g")
 svg.append("g")
     .attr("class", "label")
     .append("text")
-    .attr("x", (-40))
-    .attr("y", (height/4))
+    .attr("x", (-30))
+    .attr("y", (height/4.7))
     .style("text-anchor", "end")
-    .text("Emission covered")
+    .text("Emissions covered by countries that have")
+    .attr("transform", "rotate(-90)");
+
+// bit of a hacky way of introducing a line break, but probably ok since th dimensions aren't going ot change
+
+svg.append("g")
+    .attr("class", "label")
+    .append("text")
+    .attr("x", (-30))
+    .attr("y", (height/3.6))
+    .style("text-anchor", "end")
+    .text("peaked or committed to peak")
     .attr("transform", "rotate(-90)");
 
 
