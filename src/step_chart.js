@@ -75,9 +75,9 @@ var data2 =[
 
 // set width and height constants
 
-var margin = {top: 30, right: 80, bottom: 50, left: 50},
+var margin = {top: 40, right: 80, bottom: 50, left: 50},
     width = 1400 - margin.left - margin.right,
-    height = 420 - margin.top - margin.bottom;
+    height = 340 - margin.top - margin.bottom;
 
 // set the ranges
 
@@ -165,7 +165,7 @@ svg.append("g")
     .attr("class", "label")
     .append("text")
     .attr("x", (width + 50))
-    .attr("y", (height*1.17))
+    .attr("y", (height*1.3))
     .style("text-anchor", "end")
     .text("Year");
 
@@ -173,22 +173,22 @@ svg.append("g")
 svg.append("g")
     .attr("class", "label")
     .append("text")
-    .attr("x", (-25))
-    .attr("y", (height/4.7))
+    .attr("x", (-30))
+    .attr("y", (height/3.1))
     .style("text-anchor", "end")
-    .text("Emissions covered by countries that have")
+    .text("Emissions covered**")
     .attr("transform", "rotate(-90)");
 
 // bit of a hacky way of introducing a line break, but probably ok since the dimensions aren't going to change
 
-svg.append("g")
-    .attr("class", "label")
-    .append("text")
-    .attr("x", (-25))
-    .attr("y", (height/3.6))
-    .style("text-anchor", "end")
-    .text("peaked or committed to peak")
-    .attr("transform", "rotate(-90)");
+// svg.append("g")
+//     .attr("class", "label")
+//     .append("text")
+//     .attr("x", (0))
+//     .attr("y", (height/2.6))
+//     .style("text-anchor", "end")
+//     .text("have peaked or committed to peak")
+//     .attr("transform", "rotate(-90)");
 
 
 /*
@@ -247,11 +247,11 @@ var annotationData = [
     },
     {
         year: 2030,
-        value: 0.807
+        value: 0.78
     },
     {
         year: 2025,
-        value: 0.807
+        value: 0.78
     }
 ]
 
@@ -279,23 +279,23 @@ function transitionEnd () {
     svg.append("g")
     .attr("class", "annotation-text")
     .append("text")
-    .attr("x", (width/2.3))
-    .attr("y", (60))
+    .attr("x", (width/2.2))
+    .attr("y", (70))
     .style("text-anchor", "start")
     .text("A further 9 countries responsible");
 
     svg.append("g")
     .attr("class", "annotation-text")
     .append("text")
-    .attr("x", (width/2.3))
-    .attr("y", (95))
+    .attr("x", (width/2.2))
+    .attr("y", (100))
     .style("text-anchor", "start")
     .text("for 28% of global emissions**");
 
     svg.append("g")
     .attr("class", "annotation-text")
     .append("text")
-    .attr("x", (width/2.3))
+    .attr("x", (width/2.2))
     .attr("y", (130))
     .style("text-anchor", "start")
     .text("have committed to peak");

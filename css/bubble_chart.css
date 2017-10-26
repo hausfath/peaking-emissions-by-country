@@ -22,16 +22,12 @@ a, a:visited, a:active {
 .button.active {
   background: #333333;
   color: #fff;
+  pointer-events: none;
 }
 
 .button:hover {
   background:#333333;
 }
-
-.button.active:hover {
-  pointer-events: none;
-}
-
 
 #bubble-chart {
   width: 100%;
