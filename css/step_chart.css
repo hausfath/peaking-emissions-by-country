@@ -23,6 +23,12 @@
     stroke: #333333;
     stroke-width: 2.5px;
   }
+
+  .annotation {
+    fill: none;
+    stroke: #A0A0A0;
+    stroke-width: 2.5px;
+  }
   
   .bar {
     /* fill: #ade2ea; */

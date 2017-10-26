@@ -383,7 +383,7 @@ function setupButtons() {
 formatDecimalComma = d3.format(",.0f")
 
 // Load the data.
-d3.csv('data/dummy-data-3.csv', display);
+d3.csv('data/data.csv', display);
 
 // setup the buttons.
 setupButtons();

@@ -68,7 +68,7 @@ var data2 =[
     {
         year: 2035,
         value: 0.647,
-    },
+    }
 
 
 ]
@@ -230,6 +230,28 @@ svg.append("g")
    
        tooltip.hideTooltip();
      }
+
+// Animate annotation
+
+var annotation = [
+    {
+        year: 2010,
+        value: 0.364
+    },
+    {
+        year: 2010,
+        value: 0.664
+    }
+]
+
+svg.append('path')   
+    .datum(annotation)
+    .attr('class', 'annotation')
+    .attr("d", line)
+    .attr("fill", "none")
+    .style("stroke-dasharray", ("3, 3"))
+    .transition()
+    .duration(1500);
 
 
 
