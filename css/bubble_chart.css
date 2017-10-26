@@ -62,7 +62,7 @@ a, a:visited, a:active {
   border: 2px solid #000;
   background: #fff;
 	opacity: .9;
-  color: black;
+  color: #333333;
 	padding: 10px;
 	max-width: 300px;
 	font-size: 12px;
@@ -136,12 +136,14 @@ h1 {
   font-family: PT Sans Narrow;
   font-weight: normal;
   font-size: 30px;
+  color: #333333;
 }
 
 #subtitle {
   font-weight: normal;
   font-size: 16px;
-  font-family: pT Serif;
+  font-family: PT serif;
+  color: #333333;
 }
 
 h3 {

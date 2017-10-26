@@ -6,16 +6,20 @@
 .x-axis {
   font-size: 18px;
   font-family: PT Sans;
+  color: #333333;
+  
 }
 
 .y-axis {
   font-size: 18px;
   font-family: PT Sans;
+  color: #333333;
 }
 
 .label {
   font-size: 17px;
   font-style: italic;
+  color: #333333;
 }
 
 .line {
@@ -33,6 +37,7 @@
   .annotation-text {
     font-family: PT Serif, serif;
     font-size: 22px;
+    color: #333333;
   }
   
   .bar {
@@ -53,7 +58,7 @@
   border: 2px solid #000;
   background: #fff;
 	opacity: .9;
-  color: black;
+  color: #333333;
 	padding: 10px;
 	max-width: 300px;
 	font-size: 12px;
