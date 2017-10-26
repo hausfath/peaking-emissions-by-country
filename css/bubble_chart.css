@@ -229,6 +229,10 @@ li {
   #key {
     right: calc(16% - 20px);    
   }
+
+  #subtitle {
+    font-size: 19px;
+  }
 }
 
 @media (max-width:1600px) and (min-width: 1200px) {
@@ -240,6 +244,9 @@ li {
   }
   #key {
     right: calc(14% - 20px);    
+  }
+  #subtitle {
+    font-size: 17px;
   }
 }
 
@@ -320,6 +327,9 @@ li {
   }
   #key {
     top: 110px;
+  }
+  #subtitle {
+    font-size: 14px;
   }
 }
 
