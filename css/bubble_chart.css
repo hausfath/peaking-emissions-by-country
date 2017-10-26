@@ -138,6 +138,12 @@ h1 {
   font-size: 30px;
 }
 
+#subtitle {
+  font-weight: normal;
+  font-size: 16px;
+  font-family: pT Serif;
+}
+
 h3 {
   font-family: PT Sans Narrow;
   font-weight: bold;
@@ -156,7 +162,7 @@ li {
 
 #key {
 	position: absolute;
-	top: 85px;
+	top: 125px;
 	right: calc(8% - 20px);
 	height: 50px;
 	width: 370px;
@@ -274,6 +280,12 @@ li {
   }
 }
 
+@media (max-width: 920px) {
+  #key {
+    top: 160px;
+  }
+}
+
 @media (max-width: 850px) {
   #bubble-chart {
     height: 200px;
@@ -294,9 +306,7 @@ li {
   h1 {
     font-size: 25px;
   }
-  #key {
-    top: 75px;
-  }
+  
   .footer {
     margin-top: 15px;
   }
@@ -305,6 +315,21 @@ li {
   }
   .button {
     font-size: 12.5px;
+  }
+  #key {
+    top: 110px;
+  }
+}
+
+@media (min-width: 690px) and (max-width: 720px) {
+  #key {
+    top: 140px;
+  }
+}
+
+@media (max-width: 690px) {
+  #key {
+    top: 160px;
   }
 }
 

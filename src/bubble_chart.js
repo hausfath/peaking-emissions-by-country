@@ -297,9 +297,9 @@ function bubbleChart() {
                   '<span class="name">Peak year: </span><span class="value">' +
                   d.peak_year +
                   '</span><br/>' +
-                  '<span class="name">Carbon footprint*: </span><span class="value">' +
+                  '<span class="name">Emissions*: </span><span class="value">' +
                   formatDecimalComma((d.value)/1000000) +
-                  'm tonnes CO2E</span>';
+                  ' mtCO2e</span>';
 
     tooltip.showTooltip(content, d3.event);
   }
