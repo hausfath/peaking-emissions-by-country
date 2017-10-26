@@ -233,7 +233,13 @@ svg.append("g")
 
 // Animate annotation
 
-var annotation = [
+var t = d3.transition()
+.duration(1000)
+.ease(d3.easeLinear)
+.on("start", function(d){ console.log("transiton start") })
+.on("end", changeAnnotationStyle)
+
+var annotationData = [
     {
         year: 2010,
         value: 0.364
@@ -244,14 +250,37 @@ var annotation = [
     }
 ]
 
-svg.append('path')   
-    .datum(annotation)
-    .attr('class', 'annotation')
-    .attr("d", line)
-    .attr("fill", "none")
-    .style("stroke-dasharray", ("3, 3"))
-    .transition()
-    .duration(1500);
+var annotation = svg.selectAll(".annotation")
+                    .data([annotationData]);
+
+annotation.enter().append("path")
+.classed("annotation", true)
+.merge(annotation)
+.attr("d", line)
+.attr("fill", "none")
+.attr("stroke-dasharray", function(d){ return this.getTotalLength() })
+.attr("stroke-dashoffset", function(d){ return this.getTotalLength() });
+
+svg.selectAll(".annotation")
+    .transition(t)
+    .attr("stroke-dashoffset", 0);
+
+function changeAnnotationStyle () {
+    svg.selectAll(".annotation")
+    .style("stroke-dasharray", ("4, 4"));
+
+} 
+
+
+
+// svg.append('path')   
+//     .datum(annotation)
+//     .attr('class', 'annotation')
+//     .attr("d", line)
+//     .attr("fill", "none")
+//     .style("stroke-dasharray", ("3, 3"))
+//     .transition()
+//     .duration(1500);
 
 
 
