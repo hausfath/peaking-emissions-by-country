@@ -24,10 +24,15 @@
     stroke-width: 2.5px;
   }
 
-  .annotation {
+  .annotation-path {
     fill: none;
     stroke: #A0A0A0;
     stroke-width: 2.5px;
+  }
+
+  .annotation-text {
+    font-family: PT Serif, serif;
+    font-size: 20px;
   }
   
   .bar {

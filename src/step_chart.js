@@ -234,53 +234,74 @@ svg.append("g")
 // Animate annotation
 
 var t = d3.transition()
-.duration(1000)
+.delay(3500)
+.duration(700)
 .ease(d3.easeLinear)
 .on("start", function(d){ console.log("transiton start") })
-.on("end", changeAnnotationStyle)
+.on("end", transitionEnd);
 
 var annotationData = [
     {
-        year: 2010,
-        value: 0.364
+        year: 2030,
+        value: 0.647
     },
     {
-        year: 2010,
-        value: 0.664
+        year: 2030,
+        value: 0.847
+    },
+    {
+        year: 2023,
+        value: 0.847
     }
 ]
 
-var annotation = svg.selectAll(".annotation")
+var annotation = svg.selectAll(".annotation-path")
                     .data([annotationData]);
 
 annotation.enter().append("path")
-.classed("annotation", true)
+.classed("annotation-path", true)
 .merge(annotation)
 .attr("d", line)
 .attr("fill", "none")
 .attr("stroke-dasharray", function(d){ return this.getTotalLength() })
 .attr("stroke-dashoffset", function(d){ return this.getTotalLength() });
 
-svg.selectAll(".annotation")
+svg.selectAll(".annotation-path")
     .transition(t)
     .attr("stroke-dashoffset", 0);
 
-function changeAnnotationStyle () {
-    svg.selectAll(".annotation")
+function transitionEnd () {
+    svg.selectAll(".annotation-path")
     .style("stroke-dasharray", ("4, 4"));
+
+    // add text
+
+    svg.append("g")
+    .attr("class", "annotation-text")
+    .append("text")
+    .attr("x", (width/2.3))
+    .attr("y", (40))
+    .style("text-anchor", "start")
+    .text("A further 19 countries responsible");
+
+    svg.append("g")
+    .attr("class", "annotation-text")
+    .append("text")
+    .attr("x", (width/2.3))
+    .attr("y", (70))
+    .style("text-anchor", "start")
+    .text("for 26% of global emissions*");
+
+    svg.append("g")
+    .attr("class", "annotation-text")
+    .append("text")
+    .attr("x", (width/2.3))
+    .attr("y", (100))
+    .style("text-anchor", "start")
+    .text("have committed to peak");
 
 } 
 
-
-
-// svg.append('path')   
-//     .datum(annotation)
-//     .attr('class', 'annotation')
-//     .attr("d", line)
-//     .attr("fill", "none")
-//     .style("stroke-dasharray", ("3, 3"))
-//     .transition()
-//     .duration(1500);
 
 
 
