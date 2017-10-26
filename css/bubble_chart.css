@@ -209,7 +209,7 @@ li {
     height: 320px;
   }
   #step-chart {
-    height: 340px;
+    height: 250px;
   }
 }
 
@@ -229,6 +229,10 @@ li {
   #subtitle {
     font-size: 19px;
   }
+
+  #step-chart {
+    height: 350px;
+  }
 }
 
 @media (max-width:1600px) and (min-width: 1200px) {
@@ -243,6 +247,12 @@ li {
   }
   #subtitle {
     font-size: 17px;
+  }
+}
+
+@media (max-width:1600px) and (min-width: 1300px) {
+  #step-chart {
+    height: 280px;
   }
 }
 
@@ -263,7 +273,7 @@ li {
     height: 300px;
   }
   #step-chart {
-    height: 320px;
+    height: 230px;
   }
 }
 
@@ -272,7 +282,7 @@ li {
     height: 280px;
   }
   #step-chart {
-    height: 300px;
+    height: 220px;
   }
 }
 
@@ -281,7 +291,7 @@ li {
     height: 250px;
   }
   #step-chart {
-    height: 260px;
+    height: 180px;
   }
 }
 
@@ -296,7 +306,7 @@ li {
     height: 200px;
   }
   #step-chart {
-    height: 220px;
+    height: 150px;
   }
   #credit p {
     font-size: 11.5px;
@@ -348,6 +358,9 @@ li {
   #bubble-chart {
     height: 150px;
   }
+  #step-chart {
+    height: 125px;
+  }
   #credit {
     width: 100%;
     height: 150px;
@@ -378,6 +391,6 @@ li {
     height: 120px;
   }
   #step-chart {
-    height: 120px;
+    height: 80px;
   }
 }
