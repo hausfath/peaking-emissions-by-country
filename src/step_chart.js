@@ -290,7 +290,7 @@ function transitionEnd () {
     .attr("x", (width/2.3))
     .attr("y", (95))
     .style("text-anchor", "start")
-    .text("for 26% of global emissions*");
+    .text("for 26% of global emissions**");
 
     svg.append("g")
     .attr("class", "annotation-text")
