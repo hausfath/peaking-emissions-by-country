@@ -31,7 +31,7 @@ a, a:visited, a:active {
 
 #bubble-chart {
   width: 100%;
-  height: 350px;
+  height: 340px;
   clear: both;
   margin-bottom: 0px;
 }
@@ -214,10 +214,16 @@ li {
 
 /* larger margins above a certain width */
 
-@media (min-width: 1700px) {
+@media (min-width: 1800px) {
   #bubble-chart {
-    height: 410px;
+    height: 400px;
   }
+  #step-chart {
+    height: 340px;
+  }
+}
+
+@media (min-width: 1700px) {
   .container {
     width: 60%;
     margin-left: 18%;
@@ -234,11 +240,11 @@ li {
   }
 
   #step-chart {
-    height: 350px;
+    height: 300px;
   }
 
   #bubble-chart {
-    height: 400px;
+    height: 370px;
   }
 }
 
@@ -258,11 +264,11 @@ li {
   }
 
   #step-chart {
-    height: 350px;
+    height: 290px;
   }
 
   #bubble-chart {
-    height: 380px;
+    height: 350px;
   }
 }
 
@@ -287,9 +293,16 @@ li {
   }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1600px) {
   #bubble-chart {
     height: 340px;
+  }
+
+}
+
+@media (max-width: 1500px) {
+  #bubble-chart {
+    height: 330px;
   }
 
 }
