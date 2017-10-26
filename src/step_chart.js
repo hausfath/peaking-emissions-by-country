@@ -247,11 +247,11 @@ var annotationData = [
     },
     {
         year: 2030,
-        value: 0.847
+        value: 0.807
     },
     {
-        year: 2023,
-        value: 0.847
+        year: 2025,
+        value: 0.807
     }
 ]
 
@@ -280,7 +280,7 @@ function transitionEnd () {
     .attr("class", "annotation-text")
     .append("text")
     .attr("x", (width/2.3))
-    .attr("y", (40))
+    .attr("y", (60))
     .style("text-anchor", "start")
     .text("A further 19 countries responsible");
 
@@ -288,7 +288,7 @@ function transitionEnd () {
     .attr("class", "annotation-text")
     .append("text")
     .attr("x", (width/2.3))
-    .attr("y", (70))
+    .attr("y", (95))
     .style("text-anchor", "start")
     .text("for 26% of global emissions*");
 
@@ -296,7 +296,7 @@ function transitionEnd () {
     .attr("class", "annotation-text")
     .append("text")
     .attr("x", (width/2.3))
-    .attr("y", (100))
+    .attr("y", (130))
     .style("text-anchor", "start")
     .text("have committed to peak");
 

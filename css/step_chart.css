@@ -4,12 +4,12 @@
 }
 
 .x-axis {
-  font-size: 17px;
+  font-size: 18px;
   font-family: PT Sans;
 }
 
 .y-axis {
-  font-size: 17px;
+  font-size: 18px;
   font-family: PT Sans;
 }
 
@@ -32,7 +32,7 @@
 
   .annotation-text {
     font-family: PT Serif, serif;
-    font-size: 20px;
+    font-size: 22px;
   }
   
   .bar {
