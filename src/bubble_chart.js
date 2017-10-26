@@ -18,15 +18,15 @@ function bubbleChart() {
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: width / 2, y: height / 1.9 };
+  var center = { x: width / 2, y: height / 2.15 };
 
   var yearCenters = {
-    1990: { x: 1 * width / 7, y: height / 1.9 },
-    2000: { x: 2 * width / 7, y: height / 1.9 },
-    2010: { x: 3 * width / 7, y: height / 1.9 },
-    2020: { x: 4 * width / 7, y: height / 1.9 },
-    2030: { x: 5 * width / 7, y: height / 1.9 },
-    2050: { x: 6 * width / 7, y: height / 1.9 }
+    1990: { x: 1 * width / 7, y: height / 1.4 },   //y lower than for the single bubble to make room for the titles
+    2000: { x: 2 * width / 7, y: height / 1.4 },
+    2010: { x: 3 * width / 7, y: height / 1.4 },
+    2020: { x: 4 * width / 7, y: height / 1.4 },
+    2030: { x: 5 * width / 7, y: height / 1.4 },
+    2050: { x: 6 * width / 7, y: height / 1.4 }
   };
 
   console.log(yearCenters);
@@ -162,8 +162,6 @@ function bubbleChart() {
       .append('svg')
       .attr("viewBox", "0 0 " + (width) + " " + (height))
       .attr("preserveAspectRatio", "xMidYMid meet");
-      // .attr('width', width)
-      // .attr('height', height);
 
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
@@ -275,7 +273,7 @@ function bubbleChart() {
     years.enter().append('text')
       .attr('class', 'year')
       .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', 90)
+      .attr('y', 70)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }

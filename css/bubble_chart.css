@@ -31,13 +31,13 @@ a, a:visited, a:active {
 
 #bubble-chart {
   width: 100%;
-  height: 360px;
+  height: 350px;
   clear: both;
   margin-bottom: 0px;
 }
 
 #toolbar {
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 15px;
   opacity: 0;
 }
@@ -89,9 +89,9 @@ a, a:visited, a:active {
 }
 
 .footer > div { 
-  display: table-cell; 
+  display: table-cell;
   height: 80px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 #wri-logo {
@@ -117,6 +117,11 @@ a, a:visited, a:active {
 #credit {
   height: 80px;
   width: 50%;
+  vertical-align: top;
+}
+
+.logo-container > .logo {
+  margin-left: auto;
 }
 
 p {
@@ -133,6 +138,7 @@ h1 {
   font-weight: normal;
   font-size: 30px;
   color: #333333;
+  margin-bottom: 10px;
 }
 
 #subtitle {
@@ -140,6 +146,8 @@ h1 {
   font-size: 16px;
   font-family: PT serif;
   color: #333333;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 h3 {
@@ -160,7 +168,7 @@ li {
 
 #key {
 	position: absolute;
-	top: 125px;
+	top: 110px;
 	right: calc(8% - 20px);
 	height: 50px;
 	width: 370px;
@@ -204,18 +212,37 @@ li {
 
 /* make responsive */
 
-@media (max-width: 1300px) {
+/* larger margins above a certain width */
+
+@media (min-width: 1700px) {
   #bubble-chart {
-    height: 320px;
+    height: 410px;
   }
+  .container {
+    width: 60%;
+    margin-left: 18%;
+    margin-right: 22%; 
+    /* larger right margin to allow more space for tooltip */
+  }
+
+  #key {
+    right: calc(22% - 20px);    
+  }
+
+  #subtitle {
+    font-size: 19px;
+  }
+
   #step-chart {
-    height: 250px;
+    height: 350px;
+  }
+
+  #bubble-chart {
+    height: 400px;
   }
 }
 
-/* larger margins above a certain width */
-
-@media (min-width: 1600px) {
+@media (min-width: 1600px) and (max-width: 1700px) {
   .container {
     width: 65%;
     margin-left: 14%;
@@ -227,11 +254,15 @@ li {
   }
 
   #subtitle {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   #step-chart {
     height: 350px;
+  }
+
+  #bubble-chart {
+    height: 380px;
   }
 }
 
@@ -250,9 +281,32 @@ li {
   }
 }
 
-@media (max-width:1600px) and (min-width: 1300px) {
+@media (min-width: 1300px) and (max-width: 1600px) {
   #step-chart {
     height: 280px;
+  }
+}
+
+@media (max-width: 1500px) {
+  #bubble-chart {
+    height: 340px;
+  }
+
+}
+
+@media (max-width: 1400px) {
+  #bubble-chart {
+    height: 320px;
+  }
+
+}
+
+@media (max-width: 1300px) {
+  #bubble-chart {
+    height: 300px;
+  }
+  #step-chart {
+    height: 250px;
   }
 }
 
@@ -270,7 +324,7 @@ li {
 
 @media (max-width: 1200px) {
   #bubble-chart {
-    height: 300px;
+    height: 280px;
   }
   #step-chart {
     height: 230px;
@@ -279,7 +333,7 @@ li {
 
 @media (max-width: 1100px) {
   #bubble-chart {
-    height: 280px;
+    height: 260px;
   }
   #step-chart {
     height: 220px;
@@ -288,7 +342,7 @@ li {
 
 @media (max-width: 1000px) {
   #bubble-chart {
-    height: 250px;
+    height: 240px;
   }
   #step-chart {
     height: 180px;
@@ -297,13 +351,13 @@ li {
 
 @media (max-width: 920px) {
   #key {
-    top: 160px;
+    top: 145px;
   }
 }
 
 @media (max-width: 850px) {
   #bubble-chart {
-    height: 200px;
+    height: 210px;
   }
   #step-chart {
     height: 150px;
@@ -332,22 +386,16 @@ li {
     font-size: 12.5px;
   }
   #key {
-    top: 110px;
+    top: 95px;
   }
   #subtitle {
     font-size: 14px;
   }
 }
 
-@media (min-width: 690px) and (max-width: 720px) {
+@media (min-width: 640px) and (max-width: 720px) {
   #key {
-    top: 140px;
-  }
-}
-
-@media (max-width: 690px) {
-  #key {
-    top: 160px;
+    top: 125px;
   }
 }
 
@@ -388,7 +436,7 @@ li {
 
 @media (max-width: 400px) {
   #bubble-chart {
-    height: 120px;
+    height: 110px;
   }
   #step-chart {
     height: 80px;
