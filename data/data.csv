@@ -7,7 +7,7 @@ Belgium,Europe,UNFCCC Annex I,1996,2000,Peaked,133258000
 Brazil,South America,UNFCCC Non-Annex I,2004,2010,Peaked,1268171300
 Bulgaria,Europe,UNFCCC Annex I,1990 or earlier,1990,Peaked,60519000
 Canada,North America,UNFCCC Annex I,2007,2010,Peaked,706403000
-China,Asia,UNFCCC Non-Annex I,2030 or earlier (CO2 only),2030,Will peak,11200000000
+China,Asia,UNFCCC Non-Annex I,2030 or earlier (CO2 only),2030,Will peak,8770000000
 Costa Rica,North America,UNFCCC Non-Annex I,1999,2000,Peaked,14400000
 Croatia,Europe,UNFCCC Annex I,1990 or earlier,1990,Peaked,27280000
 Cyprus,Asia,UNFCCC Annex I,2008,2010,Peaked,9572000
@@ -44,7 +44,7 @@ Poland,Europe,UNFCCC Annex I,1992,2000,Peaked,403599000
 Portugal,Europe,UNFCCC Annex I,2005,2010,Peaked,71202000
 Romania,Europe,UNFCCC Annex I,1990 or earlier,1990,Peaked,119125000
 Russia,Europe,UNFCCC Annex I,1990 or earlier,1990,Peaked,2602483000
-San Marino,Europe,UNFCCC Non-Annex I,2030 or earlier,2030,Will peak,334000
+San Marino,Europe,UNFCCC Non-Annex I,2007,2010,Peaked,334000
 Serbia,Europe,UNFCCC Non-Annex I,1990 or earlier,1990,Peaked,65800000
 Singapore,Asia,UNFCCC Non-Annex I,2030 or earlier,2030,Will peak,55400000
 Slovakia,Europe,UNFCCC Annex I,1990 or earlier,1990,Peaked,46483000
@@ -83,6 +83,7 @@ Cape Verde,Africa,UNFCCC Non-Annex I,Unknown,2050,Unknown,623000
 Central African Republic,Africa,UNFCCC Non-Annex I,Unknown,2050,Unknown,36000000
 Chad,Africa,UNFCCC Non-Annex I,Unknown,2050,Unknown,41500000
 Chile,South America,UNFCCC Non-Annex I,Unknown,2050,Unknown,83300000
+China Non-CO2,Asia,UNFCCC Non-Annex I,Unknown,2050,Unknown,2430000000
 Colombia,South America,UNFCCC Non-Annex I,Unknown,2050,Unknown,242000000
 Comoros,Africa,UNFCCC Non-Annex I,Unknown,2050,Unknown,856000
 Republic of the Congo,Africa,UNFCCC Non-Annex I,Unknown,2050,Unknown,17900000
