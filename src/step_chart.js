@@ -16,7 +16,7 @@ var data = [{
     year: 2005,
     label: 2010,
     value: 0.364,
-    countries: 48,
+    countries: 49,
     type: "Peaked"
 },{
     year: 2015,
@@ -27,7 +27,7 @@ var data = [{
 },{
     year: 2025,
     label: 2030,
-    value: 0.647,
+    value: 0.598,
     countries: 57,
     type: "Will peak"
 }]
@@ -63,11 +63,11 @@ var data2 =[
     },
     {
         year: 2025,
-        value: 0.647,
+        value: 0.598,
     },
     {
         year: 2035,
-        value: 0.647,
+        value: 0.598,
     }
 
 
